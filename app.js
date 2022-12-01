@@ -3,7 +3,7 @@
 //get user input from url: http://127.0.0.1:8001/?student_id=1001735333
 var url_string = window.location.href
 var url = new URL(url_string);
-var student_id = url.searchParams.get("student_id");
+var doi_id = url.searchParams.get("doi_id");
 //
 function Get(yourUrl){
   var Httpreq = new XMLHttpRequest(); // a new request
@@ -20,7 +20,7 @@ const output = document.querySelector(".output");
 // Storing json data in a variable
 //const localJsonFile = "local.json";
 const localJsonFile = "data/filtered.json";
-const APIurl = "http://127.0.0.1:8000?student_id="+student_id;
+const APIurl = "http://127.0.0.1:8000?doi_id="+doi_id;
 //var json_obj = JSON.parse(Get(APIurl));
 
 
@@ -56,7 +56,7 @@ function jsonList(item) {
   const div = document.createElement("div");
   // get the required details from the local.json file to the div element using innerHTML
   div.innerHTML = `
-        ${item.student_id} got Parcial 1: ${item.Parcial_1.value} from ${APIurl}`;
+        ${item.doi_id} got Parcial 1: ${item.Parcial_1.value} from ${APIurl}`;
   // attach the newly created div element to the original div element, in this case to the class '.output'
   output.append(div);
   // Add styling to the displayed content
